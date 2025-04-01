@@ -15,7 +15,8 @@ ENTITY IO_DECODER IS
     SWITCH_EN     : OUT STD_LOGIC;
     TIMER_EN      : OUT STD_LOGIC;
     HEX0_EN       : OUT STD_LOGIC;
-    HEX1_EN       : OUT STD_LOGIC
+    HEX1_EN       : OUT STD_LOGIC;
+	 LEDs_EN			: OUT STD_LOGIC
   );
 
 END ENTITY;
@@ -32,5 +33,6 @@ begin
   TIMER_EN     <= '1' WHEN (ADDR_INT = 16#002#) and (IO_CYCLE = '1') ELSE '0';
   HEX0_EN      <= '1' WHEN (ADDR_INT = 16#004#) and (IO_CYCLE = '1') ELSE '0';
   HEX1_EN      <= '1' WHEN (ADDR_INT = 16#005#) and (IO_CYCLE = '1') ELSE '0';
+  LEDs_EN      <= '1' WHEN (ADDR_INT = 16#020#) and (IO_CYCLE = '1') ELSE '0';
       
 END a;
