@@ -1,0 +1,12 @@
+WIDTH=16;
+DEPTH=2048;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+0000: 9000; -- In Switches
+0001: 9814; -- Out LEDs
+0002: 2800; -- Jump Begin
+[0003..07FF] : 0000; -- [empty memory]
+END;
