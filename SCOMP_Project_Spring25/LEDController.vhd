@@ -49,11 +49,11 @@ ARCHITECTURE a OF LEDController IS
 	signal slow_clk 			:STD_LOGIC := '0'; 
 BEGIN
 	--Clock Division 
-	PROCESS (CLOCK)
+	PROCESS (cs)
 	BEGIN 
-		IF RISING_EDGE(CLOCK) THEN 
+		IF RISING_EDGE(cs) THEN 
 			clk_divider <= clk_divider + 1; 
-			slow_clk <= clk_divider(17); --Makes it 190Hz 
+			slow_clk <= clk_divider(2); 
 		END IF; 
 	END PROCESS; 
 	
@@ -103,19 +103,19 @@ BEGIN
 	 PROCESS (slow_clk)
 	 BEGIN
 		IF rising_edge(slow_clk) THEN
-			IF breathing_Counter = "00110010" THEN
+			IF breathing_Counter = "00000001" THEN
 				breathing_Counter <= (others => '0'); 
 				IF increasingBrightness ='1' THEN 
 					IF breathing_Level = "11111111" THEN
 						increasingBrightness <= '0'; 
 					ELSE 
-						breathing_Level <= breathing_Level + 1;
+						breathing_Level <= breathing_Level + 2;
 					END IF;
 				ELSE
 					IF breathing_Level = "00000000" THEN 
 						increasingBrightness <= '1';
 					ELSE 
-						breathing_Level <= breathing_Level - 1;
+						breathing_Level <= breathing_Level - 2;
 					END IF;
 				END IF;
 			ELSE 
@@ -127,7 +127,7 @@ BEGIN
 	process(slow_clk) 
 	BEGIN 
 		IF RISING_EDGE(slow_clk) THEN 
-			IF chase_Counter = "01111101" THEN 
+			IF chase_Counter = "00000001" THEN 
 				chase_Counter <= (others => '0'); 
 				IF chase_Dir = '1' THEN	
 					IF chase_Pos = 9 THEN 
@@ -162,9 +162,9 @@ BEGIN
 	
 	
 	--PWM GENERATOR
-	PROCESS(CLOCK)
+	PROCESS(CS)
 	BEGIN
-		IF rising_edge(CLOCK) THEN	
+		IF rising_edge(CS) THEN	
 			count <= count + 1; 
 			IF count < duty_cycle THEN
 				pulse <= '1';
