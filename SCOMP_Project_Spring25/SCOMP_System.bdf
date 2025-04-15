@@ -4,7 +4,7 @@ editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
 /*
-Copyright (C) 2019  Intel Corporation. All rights reserved.
+Copyright (C) 2020  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -638,9 +638,52 @@ https://fpgasoftware.intel.com/eula.
 	)
 )
 (symbol
-	(rect 792 248 1024 360)
+	(rect 768 680 984 792)
+	(text "LEDController" (rect 5 0 73 12)(font "Arial" ))
+	(text "inst11" (rect 8 96 36 113)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "CS" (rect 0 0 15 12)(font "Arial" ))
+		(text "CS" (rect 21 27 36 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "WRITE_EN" (rect 0 0 56 12)(font "Arial" ))
+		(text "WRITE_EN" (rect 21 43 77 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "RESETN" (rect 0 0 43 12)(font "Arial" ))
+		(text "RESETN" (rect 21 59 64 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "IO_DATA[15..0]" (rect 0 0 77 12)(font "Arial" ))
+		(text "IO_DATA[15..0]" (rect 21 75 98 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 216 32)
+		(output)
+		(text "LEDs[9..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "LEDs[9..0]" (rect 151 27 204 39)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 200 96))
+	)
+)
+(symbol
+	(rect 824 200 1056 344)
 	(text "IO_DECODER" (rect 5 0 78 12)(font "Arial" ))
-	(text "inst3" (rect 8 96 31 108)(font "Arial" ))
+	(text "inst3" (rect 8 128 31 140)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -683,29 +726,20 @@ https://fpgasoftware.intel.com/eula.
 		(text "HEX1_EN" (rect 171 75 211 87)(font "Arial" ))
 		(line (pt 232 80)(pt 216 80))
 	)
+	(port
+		(pt 232 96)
+		(output)
+		(text "LEDs_EN" (rect 0 0 48 12)(font "Arial" ))
+		(text "LEDs_EN" (rect 171 91 211 103)(font "Arial" ))
+		(line (pt 232 96)(pt 216 96))
+	)
 	(drawing
-		(rectangle (rect 16 16 216 96))
+		(rectangle (rect 16 16 216 128))
 	)
 )
 (connector
 	(pt 328 128)
 	(pt 344 128)
-)
-(connector
-	(text "SWITCH_EN" (rect 1034 264 1091 281)(font "Intel Clear" ))
-	(pt 1024 280)
-	(pt 1104 280)
-)
-(connector
-	(text "IO_ADDR[10..0]" (rect 706 264 780 281)(font "Intel Clear" ))
-	(pt 696 280)
-	(pt 792 280)
-	(bus)
-)
-(connector
-	(text "IO_CYCLE" (rect 706 280 755 297)(font "Intel Clear" ))
-	(pt 696 296)
-	(pt 792 296)
 )
 (connector
 	(text "clock_4Hz" (rect 1018 120 1066 137)(font "Intel Clear" ))
@@ -943,17 +977,6 @@ https://fpgasoftware.intel.com/eula.
 	(bus)
 )
 (connector
-	(text "LEDs[9..0]" (rect 1072 696 1119 713)(font "Intel Clear" ))
-	(pt 1072 712)
-	(pt 1128 712)
-	(bus)
-)
-(connector
-	(text "LED_EN" (rect 698 696 735 713)(font "Intel Clear" ))
-	(pt 768 712)
-	(pt 688 712)
-)
-(connector
 	(text "IO_WRITE" (rect 696 712 744 729)(font "Intel Clear" ))
 	(pt 768 728)
 	(pt 688 728)
@@ -970,25 +993,57 @@ https://fpgasoftware.intel.com/eula.
 	(bus)
 )
 (connector
-	(text "TIMER_EN" (rect 1034 280 1083 297)(font "Intel Clear" ))
-	(pt 1024 296)
-	(pt 1104 296)
-)
-(connector
-	(text "HEX0_EN" (rect 1034 296 1078 313)(font "Intel Clear" ))
-	(pt 1024 312)
-	(pt 1104 312)
-)
-(connector
-	(text "HEX1_EN" (rect 1034 312 1078 329)(font "Intel Clear" ))
-	(pt 1024 328)
-	(pt 1104 328)
-)
-(connector
 	(text "0,0,0,0" (rect 1154 800 1184 817)(font "Intel Clear" ))
 	(pt 1256 816)
 	(pt 1144 816)
 	(bus)
+)
+(connector
+	(text "LEDs_EN" (rect 698 696 740 713)(font "Intel Clear" ))
+	(pt 688 712)
+	(pt 768 712)
+)
+(connector
+	(text "LEDs[9..0]" (rect 1080 696 1127 713)(font "Intel Clear" ))
+	(pt 984 712)
+	(pt 1128 712)
+	(bus)
+)
+(connector
+	(text "SWITCH_EN" (rect 1066 216 1123 233)(font "Intel Clear" ))
+	(pt 1056 232)
+	(pt 1136 232)
+)
+(connector
+	(text "IO_ADDR[10..0]" (rect 738 216 812 233)(font "Intel Clear" ))
+	(pt 728 232)
+	(pt 824 232)
+	(bus)
+)
+(connector
+	(text "IO_CYCLE" (rect 738 232 787 249)(font "Intel Clear" ))
+	(pt 728 248)
+	(pt 824 248)
+)
+(connector
+	(text "TIMER_EN" (rect 1066 232 1115 249)(font "Intel Clear" ))
+	(pt 1056 248)
+	(pt 1136 248)
+)
+(connector
+	(text "HEX0_EN" (rect 1066 248 1110 265)(font "Intel Clear" ))
+	(pt 1056 264)
+	(pt 1136 264)
+)
+(connector
+	(text "HEX1_EN" (rect 1066 264 1110 281)(font "Intel Clear" ))
+	(pt 1056 280)
+	(pt 1136 280)
+)
+(connector
+	(text "LEDs_EN" (rect 1066 280 1108 297)(font "Intel Clear" ))
+	(pt 1056 296)
+	(pt 1136 296)
 )
 (junction (pt 536 280))
 (text "The daughterboard test points." (rect 1264 832 1446 851)(font "Intel Clear" (font_size 8)))
@@ -996,7 +1051,7 @@ https://fpgasoftware.intel.com/eula.
 (title_block
 	(rect 1112 1264 1480 1384)
 	(section (rect 0 24 368 48)(text "COMPANY" (rect 2 0 57 12)(font "Arial" ))(text "GaTech DDL" (rect 56 2 170 20)(font "Arial" (font_size 12)))(border))
-	(section (rect 0 96 240 120)(text "DATE" (rect 2 0 30 12)(font "Arial" ))(text "Mon Mar 10 11:12:14 2025" (rect 56 3 238 19)(font "Arial" (font_size 10)))(date)(border))
+	(section (rect 0 96 240 120)(text "DATE" (rect 2 0 30 12)(font "Arial" ))(text "Mon Apr 14 17:54:59 2025" (rect 56 3 236 19)(font "Arial" (font_size 10)))(date)(border))
 	(section (rect 0 48 368 72)(text "DESIGNER" (rect 2 0 59 12)(font "Arial" ))(text "Kevin Johnson, Tom Collins" (rect 56 2 286 20)(font "Arial" (font_size 12)))(border))
 	(section (rect 0 72 280 96)(text "NUMBER" (rect 2 0 49 12)(font "Arial" ))(text "1.00" (rect 56 1 85 17)(font "Arial" (font_size 10)))(border))
 	(section (rect 310 96 368 120)(text "OF" (rect 10 0 25 12)(font "Arial" ))(text "1" (rect 34 4 42 20)(font "Arial" (font_size 10))))

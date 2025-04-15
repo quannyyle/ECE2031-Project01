@@ -1,0 +1,18 @@
+WIDTH=16;
+DEPTH=2048;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+0000: 9000; -- 	IN     Switches
+0001: 0807; --   	LOAD   Value
+0002: 9814; --     Out LEDs
+0003: 0000; -- Pattern: DW  0
+0004: 0001; -- One: DW 1 
+0005: 000A; -- Counter: DW 10 ; Shifting 10 times for all active switches 
+0006: 0000; -- Count: DW 0 ;Position counter
+0007: 0004; -- Value: DW 4 
+[0008..07FF] : 0000; -- [empty memory]
+END;
+

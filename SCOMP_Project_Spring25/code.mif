@@ -1,0 +1,37 @@
+WIDTH=16;
+DEPTH=2048;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+0000: 9000; -- IN Switches
+0001: 1016; -- Store Pattern
+0002: 481A; -- AND Mask
+0003: 3809; -- JPOS Increment
+0004: 0816; -- Load Pattern
+0005: 6011; -- SHIFT -1
+0006: 1016; -- Store Pattern
+0007: 4011; -- JZERO End
+0008: 2802; -- Jump Start
+0009: 0819; -- LOAD Count
+000A: 1817; -- Add One
+000B: 1019; -- Store Count
+000C: 0816; -- Load Pattern
+000D: 6011; -- SHIFT -1
+000E: 1016; -- Store Pattern
+000F: 4011; -- JZERO End
+0010: 2802; -- JUMP Start
+0011: 0819; -- Load Count
+0012: 9801; -- OUT Leds
+0013: 0800; -- Load 0
+0014: 1019; -- Store Count
+0015: 2800; -- JUMP Begin
+0016: 0000; -- Pattern: DW 0
+0017: 0001; -- One: DW 1
+0018: 0000; -- Value: DW 0
+0019: 0000; -- Count: DW 0
+001A: 0001; -- Mask: DW &amp;H0001
+[001B..07FF] : 0000; -- [empty memory]
+END;
+
